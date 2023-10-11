@@ -1,14 +1,26 @@
 /** @format */
 
+import { Tag } from "@prisma/client";
 import Link from "next/link";
+import { FC } from "react";
 
-function PostCard() {
+interface PostCardProps {
+  post: {
+    id: string;
+    title: string;
+    content: string;
+    tag: Tag;
+  };
+}
+const PostCard: FC<PostCardProps> = ({ post }) => {
+  const { title, content, tag } = post;
   return (
     <div className="card w-full bg-base-100 shadow-xl border">
       <div className="card-body">
-        <h2 className="card-title">Card title!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <h2 className="card-title">{title}</h2>
+        <p>{content}</p>
         <div className="card-actions justify-end">
+          <span className="badge badge-accent">{tag.name}</span>
           <Link href="/blog/1" className="hover:underline">
             Read More
           </Link>
@@ -16,6 +28,6 @@ function PostCard() {
       </div>
     </div>
   );
-}
+};
 
 export default PostCard;
