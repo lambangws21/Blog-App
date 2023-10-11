@@ -13,7 +13,7 @@ interface PostCardProps {
   };
 }
 const PostCard: FC<PostCardProps> = ({ post }) => {
-  const { title, content, tag } = post;
+  const {id, title, content, tag } = post;
   return (
     <div className="card w-full bg-base-100 shadow-xl border">
       <div className="card-body">
@@ -21,7 +21,7 @@ const PostCard: FC<PostCardProps> = ({ post }) => {
         <p>{content}</p>
         <div className="card-actions justify-end">
           <span className="badge badge-accent">{tag.name}</span>
-          <Link href="/blog/1" className="hover:underline">
+          <Link href={`/blog/${id}`} className="hover:underline">
             Read More
           </Link>
         </div>

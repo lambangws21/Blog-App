@@ -1,4 +1,5 @@
 /** @format */
+"use client";
 
 import { ChevronLeftCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
